@@ -9,6 +9,7 @@ class GUI:
     def __init__(self):
         # Create the main window
         self.main_window = tkinter.Tk()
+        self.main_window.title("EPL Hub")
         self.main_window.geometry("800x500")
 
         # Create frames
@@ -20,7 +21,7 @@ class GUI:
         # Create the widgets for the top frame
         self.team_label = tkinter.Label(self.top_frame,
                               text = 'Enter a team:')
-        self.team_entry = tkinter.Entry(self.top_frame, width = 10)
+        self.team_entry = tkinter.Entry(self.top_frame, width = 20)
         
         self.search_button = tkinter.Button(self.top_frame,
                                   text = 'Search',
