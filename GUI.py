@@ -31,12 +31,8 @@ class GUI:
         self.team_label.pack(side = 'left', padx=5)
         self.team_entry.pack(side = 'left', padx=5)
         self.search_button.pack(side = 'left', padx=5)
-
-        # Create the widgets for the middle frame
-        # self.results_label = tkinter.Label(self.mid_frame,
-        #                       text = 'Fahrenheit temperature: ')
                  
-        # Create a blank label for team info and fixtures
+        # Create a blank label for team logo, team info, fixtures, and recent matches
         self.crest_label = tkinter.Label(self.mid_frame, padx=10, pady=5)
         self.teamInfo = tkinter.StringVar()
         self.teamInfo_label = tkinter.Label(self.mid_frame, textvariable= self.teamInfo, padx=10, pady=5)
@@ -79,12 +75,13 @@ class GUI:
         # Error handling for team not found
         if not response:
             print("Team name not in list. Please try again.")
-            
-            
         else:
+            # get the three seperate responses 
             teamInfo = response[0]
             schedule = response[1]
             recentGames = response[2]
+
+            # parse the data and organize it for user
             info = (
                 f"Team Information:\n\n"
                 f"Name: {teamInfo['name']}\n"
@@ -108,6 +105,7 @@ class GUI:
                 self.crest_label.config(image="")
                 print(f"Error loading logo: {e}")
             
+            # set all the information to the labels and add a border around the info
             self.teamInfo.set(info)
             self.teamInfo_label.config(borderwidth=1, relief="solid")
             
